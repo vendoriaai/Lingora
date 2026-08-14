@@ -2,6 +2,8 @@
 
 > **Speak the world into fluency.** A modern, AI-powered, voice-first language-learning app — desktop (Electron) and web.
 
+_Written & created by **bananbenbadr**._
+
 Lingora is a modern, AI-powered, voice-first language-learning app for desktop (Electron) and web: live voice conversation, courses, lessons, vocabulary, grammar, pronunciation, CEFR-based assessment, and an admin/authoring suite. This repository currently contains **only the specification set** — documents an engineering team (human or AI) can build the product from.
 
 The spec encodes a deliberate Electron + React + Supabase + Google Gemini architecture: a clean ~30-table Postgres schema with row-level security, three Supabase Edge Functions, a Gemini integration with a graceful fallback ladder, and a dual-mode live-voice subsystem. The docs are written so the product can be built correctly up front, with the design decisions spelled out rather than rediscovered.
@@ -47,6 +49,10 @@ Lingora/
 ## How to use these docs
 
 Start with `AGENTS.md`, then `docs/00-OVERVIEW.md`. The PRD defines *what* and *why*; the TAD and TDD define *how*; the schema, edge-function, AI, live-voice, IPC, and deployment docs are the buildable contracts. Build in the order given in `AGENTS.md`.
+
+## Author
+
+**bananbenbadr** — writer and creator of Lingora.
 
 ## License
 

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Speak the world into fluency — voice-first AI language learning.",
   "license": "MIT",
+  "author": "bananbenbadr",
   "type": "module",
   "main": "dist-electron/main/index.js",
   "scripts": {
