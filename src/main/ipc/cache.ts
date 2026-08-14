@@ -1,5 +1,7 @@
 import { ipcMain } from 'electron';
+
 import { CHANNEL, err, ok } from '@shared/ipc/contract';
+
 import { exportAll, importAll, readKey, writeKey } from '../local-store';
 
 export function registerCacheHandlers(): void {

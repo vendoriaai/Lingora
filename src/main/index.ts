@@ -3,6 +3,7 @@
  * Source: docs/02-TAD §2, docs/13-PROJECT-STRUCTURE.
  */
 import { app, BrowserWindow } from 'electron';
+
 import { createWindow } from './window';
 
 // Single-instance lock so opening a second Lingora .exe focuses the running one.

@@ -1,6 +1,9 @@
 import { ipcMain } from 'electron';
+
 import { CHANNEL, ok } from '@shared/ipc/contract';
+
 import { readKey, writeKey } from '../local-store';
+
 import type { Theme } from '@shared/types';
 
 export function registerSettingsHandlers(): void {

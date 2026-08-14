@@ -6,14 +6,15 @@
  * This module registers every domain; main/index.ts calls registerAllIpc().
  */
 import { ipcMain } from 'electron';
+
 import { registerAiHandlers } from './ai';
 import { registerAudioHandlers } from './audio';
-import { registerSpeechHandlers } from './speech';
-import { registerDbHandlers } from './db';
 import { registerCacheHandlers } from './cache';
-import { registerSettingsHandlers } from './settings';
-import { registerWindowHandlers } from './window';
+import { registerDbHandlers } from './db';
 import { registerMainHandlers } from './main';
+import { registerSettingsHandlers } from './settings';
+import { registerSpeechHandlers } from './speech';
+import { registerWindowHandlers } from './window';
 
 export function registerAllIpc(): void {
   for (const r of [

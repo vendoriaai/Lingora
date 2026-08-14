@@ -1,4 +1,5 @@
 import { ipcMain, BrowserWindow } from 'electron';
+
 import { CHANNEL, err, ok } from '@shared/ipc/contract';
 
 function win(evt: Electron.IpcMainInvokeEvent): BrowserWindow | null {

@@ -2,6 +2,7 @@
 // Keep this file free of business logic so it stays cheap to hot-replace.
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+
 import App from './app/App';
 import './shared/styles/tokens.css';
 import './shared/styles/tailwind.css';

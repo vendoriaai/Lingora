@@ -1,4 +1,5 @@
 import { ipcMain } from 'electron';
+
 import { CHANNEL, err } from '@shared/ipc/contract';
 
 export function registerAudioHandlers(): void {

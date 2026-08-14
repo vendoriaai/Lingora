@@ -1,6 +1,7 @@
 // ai.* handlers. Direct Gemini client used as server-side fallback only;
 // normally the renderer calls the Edge Function (which is RLS+JWT-verified).
 import { ipcMain } from 'electron';
+
 import { CHANNEL, err, ok } from '@shared/ipc/contract';
 
 export function registerAiHandlers(): void {

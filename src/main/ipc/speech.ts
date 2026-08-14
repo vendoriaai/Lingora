@@ -1,5 +1,6 @@
 // speech.* — native mic capture only when Web Speech is unavailable.
 import { ipcMain } from 'electron';
+
 import { CHANNEL, err } from '@shared/ipc/contract';
 
 export function registerSpeechHandlers(): void {

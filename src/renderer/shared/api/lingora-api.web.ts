@@ -6,6 +6,7 @@
  * Source: docs/11-IPC-CONTRACT.md §14 (web adapter parity) and docs/02-TAD §2.
  */
 import { CHANNEL, err, ok, type LingoraAPI, type Result } from '@shared/ipc/contract';
+
 import type {
   AiSettings,
   BackupBlob,

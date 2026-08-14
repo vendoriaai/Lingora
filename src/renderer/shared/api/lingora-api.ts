@@ -8,8 +8,9 @@
  * Every feature service must call `getLingoraAPI()` rather than touching
  * `window.lingoraAPI` directly — pages never import services except via it.
  */
-import type { LingoraAPI } from '@shared/ipc/contract';
 import { getWebLingoraAPI } from './lingora-api.web';
+
+import type { LingoraAPI } from '@shared/ipc/contract';
 
 declare global {
   interface Window {

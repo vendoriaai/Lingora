@@ -6,10 +6,11 @@
  *
  * Source: docs/02-TAD §3.4, docs/13-PROJECT-STRUCTURE §main/local-store.
  */
-import { app } from 'electron';
+import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile, copyFile, unlink } from 'node:fs/promises';
 import { join } from 'node:path';
-import { randomUUID } from 'node:crypto';
+
+import { app } from 'electron';
 
 let storePath = '';
 let backupPath = '';

@@ -6,7 +6,9 @@
  * Source: docs/11-IPC-CONTRACT.md, docs/02-TAD §2.
  */
 import { contextBridge, ipcRenderer } from 'electron';
+
 import { CHANNEL, EVENT, type LingoraAPI } from '@shared/ipc/contract';
+
 import type { NotificationInboxItem } from '@shared/types';
 
 /** Marshals an async IPC channel into a `Promise<Result<T>>`. */

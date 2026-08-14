@@ -2,6 +2,7 @@
 // Phase 0 ships / (sign-in) + /dev/ui-kit (dev only). Phase 1+ adds the
 // authenticated route tree (dashboard, courses, live, assessment, admin).
 import { lazy } from 'react';
+
 import type { RouteObject } from 'react-router-dom';
 
 const SignInPage = lazy(() => import('@renderer/pages/SignInPage'));

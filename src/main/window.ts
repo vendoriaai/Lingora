@@ -3,8 +3,10 @@
  * contextIsolation:true, nodeIntegration:false, sandbox:true (02 §2, 16 §1).
  * Production sets a strict CSP; dev relaxes it for the Vite/HMR origin.
  */
-import { app, BrowserWindow, shell, session } from 'electron';
 import { join } from 'node:path';
+
+import { app, BrowserWindow, shell, session } from 'electron';
+
 import { registerAllIpc } from './ipc/registry';
 import { initLocalStore } from './local-store';
 import { attachPermissionHandler } from './permissions';

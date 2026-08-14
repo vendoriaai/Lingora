@@ -89,10 +89,16 @@ const config: Config = {
           '0%,100%': { opacity: '0.5', transform: 'scale(1)' },
           '50%': { opacity: '0.9', transform: 'scale(1.08)' },
         },
+        'progress-indeterminate': {
+          '0%': { left: '-33%', right: '100%' },
+          '60%': { left: '100%', right: '-33%' },
+          '100%': { left: '100%', right: '-33%' },
+        },
       },
       animation: {
         'orb-breathe': 'orb-breathe 2s ease-in-out infinite',
         'ai-glow': 'ai-glow 1.2s ease-in-out infinite',
+        'progress-indeterminate': 'progress-indeterminate 1.4s ease-in-out infinite',
       },
     },
   },

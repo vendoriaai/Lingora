@@ -3,6 +3,7 @@
 // Phase 1+ adds AuthProvider/ProtectedRoute and the full shell via layout routes.
 import { Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+
 import { ThemeProvider } from './providers/ThemeProvider';
 import { routes } from './routes';
 

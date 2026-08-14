@@ -1,4 +1,5 @@
 import { ipcMain, app } from 'electron';
+
 import { CHANNEL, ok } from '@shared/ipc/contract';
 
 // Return ONLY VITE_-prefixed env values (never secrets — 11 §1.4).
