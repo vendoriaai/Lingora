@@ -1,7 +1,30 @@
 <div align="center">
   <img src="logo.jpeg" alt="Lingora" width="240" />
   <h1>Lingora</h1>
-  <p><strong>Speak the world into fluency.</strong> A modern, AI-powered, voice-first language-learning app — desktop (Electron) and web.</p>
+  <p><strong>Speak the world into fluency.</strong> An AI language tutor you can talk to out loud.</p>
+
+  <!-- Badges -->
+  <p>
+    <a href="https://github.com/vendoriaai/Lingora/actions"><img src="https://img.shields.io/github/actions/workflow/status/vendoriaai/Lingora/ci.yml?style=for-the-badge&logo=githubactions&logoColor=white&label=CI" alt="CI status" /></a>
+    <a href="https://github.com/vendoriaai/Lingora/stargazers"><img src="https://img.shields.io/github/stars/vendoriaai/Lingora?style=for-the-badge&logo=github" alt="GitHub stars" /></a>
+    <a href="https://github.com/vendoriaai/Lingora/network/members"><img src="https://img.shields.io/github/forks/vendoriaai/Lingora?style=for-the-badge&logo=github" alt="GitHub forks" /></a>
+    <a href="https://github.com/vendoriaai/Lingora/blob/main/LICENSE"><img src="https://img.shields.io/github/license/vendoriaai/Lingora?style=for-the-badge" alt="License: MIT" /></a>
+    <a href="https://github.com/vendoriaai/Lingora"><img src="https://img.shields.io/github/languages/top/vendoriaai/Lingora?style=for-the-badge&color=3178C6" alt="Top language: TypeScript" /></a>
+  </p>
+
+  <!-- Tech stack -->
+  <p>
+    <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+    <img src="https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron" />
+    <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+    <img src="https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+    <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" />
+    <img src="https://img.shields.io/badge/Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white" alt="Google Gemini" />
+    <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest" />
+    <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright" />
+  </p>
+
   <p><em>Written & created by <strong>bananbenbadr</strong>.</em></p>
   <p>Lingora is a modern, AI-powered, voice-first language-learning app for desktop (Electron) and web: live voice conversation, courses, lessons, vocabulary, grammar, pronunciation, CEFR-based assessment, and an admin/authoring suite. This repository currently contains <strong>only the specification set</strong> — documents an engineering team (human or AI) can build the product from.</p>
   <p>The spec encodes a deliberate Electron + React + Supabase + Google Gemini architecture: a clean ~30-table Postgres schema with row-level security, three Supabase Edge Functions, a Gemini integration with a graceful fallback ladder, and a dual-mode live-voice subsystem. The docs are written so the product can be built correctly up front, with the design decisions spelled out rather than rediscovered.</p>
