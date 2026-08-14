@@ -80,3 +80,9 @@ test-results/
 
 # Misc
 .history/
+
+# ZCode session artifacts (local agent state)
+.zcode/
+
+# Scratch / generation prompts (local only)
+tmp/

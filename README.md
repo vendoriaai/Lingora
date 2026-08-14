@@ -1,12 +1,11 @@
-# Lingora
-
-> **Speak the world into fluency.** A modern, AI-powered, voice-first language-learning app — desktop (Electron) and web.
-
-_Written & created by **bananbenbadr**._
-
-Lingora is a modern, AI-powered, voice-first language-learning app for desktop (Electron) and web: live voice conversation, courses, lessons, vocabulary, grammar, pronunciation, CEFR-based assessment, and an admin/authoring suite. This repository currently contains **only the specification set** — documents an engineering team (human or AI) can build the product from.
-
-The spec encodes a deliberate Electron + React + Supabase + Google Gemini architecture: a clean ~30-table Postgres schema with row-level security, three Supabase Edge Functions, a Gemini integration with a graceful fallback ladder, and a dual-mode live-voice subsystem. The docs are written so the product can be built correctly up front, with the design decisions spelled out rather than rediscovered.
+<div align="center">
+  <img src="logo.jpeg" alt="Lingora" width="240" />
+  <h1>Lingora</h1>
+  <p><strong>Speak the world into fluency.</strong> A modern, AI-powered, voice-first language-learning app — desktop (Electron) and web.</p>
+  <p><em>Written & created by <strong>bananbenbadr</strong>.</em></p>
+  <p>Lingora is a modern, AI-powered, voice-first language-learning app for desktop (Electron) and web: live voice conversation, courses, lessons, vocabulary, grammar, pronunciation, CEFR-based assessment, and an admin/authoring suite. This repository currently contains <strong>only the specification set</strong> — documents an engineering team (human or AI) can build the product from.</p>
+  <p>The spec encodes a deliberate Electron + React + Supabase + Google Gemini architecture: a clean ~30-table Postgres schema with row-level security, three Supabase Edge Functions, a Gemini integration with a graceful fallback ladder, and a dual-mode live-voice subsystem. The docs are written so the product can be built correctly up front, with the design decisions spelled out rather than rediscovered.</p>
+</div>
 
 ## What's in this repo
 
