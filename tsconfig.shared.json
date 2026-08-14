@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // shared/ is imported by main, preload, and renderer; the IPC contract
+    // references `Blob` (a cross-platform global: DOM + Node 18+), so DOM lib
+    // is included for type resolution only — source never calls DOM APIs.
+    "rootDir": "./src/shared",
+    "lib": ["ES2022", "DOM"],
+    "types": []
+  },
+  "include": ["src/shared/**/*.ts"]
+}

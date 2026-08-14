@@ -1,0 +1,138 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * Lingora design tokens — the single source of truth for color, type,
+ * spacing, radius, shadow, motion, and z-index. Values come from
+ * docs/04-BRAND-GUIDELINES.md (canonical) and docs/05-DESIGN-SYSTEM.md.
+ * No raw hex outside this file: components read `var(--…)` only.
+ * ───────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Color · light ……………………………………………………………………………——
+   * Primary Indigo · fills, primary buttons, focus rings, active nav. */
+  --brand-primary: #4f46e5;
+  --brand-primary-deep: #4338ca;
+  --brand-primary-surface: #eef2ff;
+
+  /* Accent Coral · reserved for voice/audio affordances + live glow. */
+  --brand-accent: #ff6b5b;
+  --brand-accent-deep: #e04b3b;
+
+  /* Violet · AI-originated content (tutor replies, suggestions). */
+  --ai: #7c3aed;
+  --ai-surface: rgba(167, 139, 250, 0.14);
+
+  /* State. */
+  --state-success: #10b981;
+  --state-warning: #f59e0b;
+  --state-danger: #e11d48;
+
+  /* Ink + text. */
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+  --text-on-primary: #ffffff;
+
+  /* Surfaces. */
+  --bg-surface: #ffffff;
+  --bg-surface-1: #f8fafc;
+  --bg-surface-2: #f1f5f9;
+
+  /* Borders. */
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+
+  /* Focus ring — 2px solid Indigo, 2px offset (a11y §5). */
+  --focus-ring: #4f46e5;
+
+  /* ── Type ……………………………………………………………………………………………………… */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Inter alternates: single-story a, disambiguated l/1/I (brand §5). */
+  --font-feature-inter: 'ss01', 'cv11';
+  --line-height-display: 1.2;
+  --line-height-body: 1.5;
+  --line-height-mono: 1.15;
+
+  /* ── Spacing · 4 ………………………………………………………………………………………… */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  /* ── Radii ……………………………………………………………………………………………………… */
+  --radius-sm: 6px;
+  --radius-md: 10px; /* buttons/inputs (05 §1.3 — the 12 in 04 §9 is superseded). */
+  --radius-lg: 14px; /* cards/containers */
+  --radius-xl: 20px;
+  --radius-pill: 999px; /* voice indicators */
+
+  /* ── Shadow …………………………………………………………………………………………………… */
+  --shadow-1: 0 1px 2px rgba(2, 6, 23, 0.06);
+  --shadow-2: 0 4px 16px rgba(2, 6, 23, 0.1);
+  --shadow-3: 0 12px 40px rgba(2, 6, 23, 0.16);
+
+  /* ── Motion …………………………………………………………………………………………………… */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur-120: 120ms;
+  --dur-160: 160ms;
+  --dur-220: 220ms;
+  --dur-300: 300ms;
+
+  /* ── Z-index scale ………………………………………………………………………………… */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-drawer: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-tooltip: 500;
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  /* The deep navy foundation (#0B1020) per brand §4. */
+  --brand-primary: #6366f1;
+  --brand-primary-deep: #3730a3;
+  --brand-primary-surface: #1e1b4b;
+
+  --brand-accent: #ff8a7a;
+  --brand-accent-deep: #ff6b5b;
+
+  --ai: #a78bfa;
+  --ai-surface: rgba(167, 139, 250, 0.12);
+
+  --state-success: #34d399;
+  --state-warning: #fbbf24;
+  --state-danger: #fb7185;
+
+  --text-primary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-on-primary: #ffffff;
+
+  --bg-surface: #0b1020;
+  --bg-surface-1: #11182b;
+  --bg-surface-2: #1a2236;
+
+  --border: #243149;
+  --border-strong: #334155;
+
+  --focus-ring: #6366f1;
+
+  /* Dark shadows: a faint violet glow + border ring (05 §1.4). */
+  --shadow-1: 0 0 0 1px var(--border);
+  --shadow-2: 0 4px 16px rgba(2, 6, 23, 0.4), 0 0 0 1px var(--border);
+  --shadow-3: 0 12px 40px rgba(2, 6, 23, 0.55), 0 0 0 1px var(--border);
+
+  color-scheme: dark;
+}
+
+/* Brand gradients (used by the Orb, AI moment buttons, avatar tiles). */
+:root {
+  --gradient-ai: linear-gradient(135deg, #4f46e5, #7c3aed);
+  --gradient-live-glow: radial-gradient(
+    circle at center,
+    rgba(255, 107, 91, 0.35),
+    rgba(79, 70, 229, 0.25) 60%,
+    transparent 80%
+  );
+  --gradient-avatar: linear-gradient(135deg, #4f46e5, #7c3aed);
+  --gradient-orb: linear-gradient(135deg, #4f46e5, #ff6b5b);
+}

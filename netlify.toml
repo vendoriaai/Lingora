@@ -1,0 +1,23 @@
+# Web build — Lingora. The same renderer is the Netlify-deployed SPA.
+[build]
+  command = "npm run build:web"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA redirect — the renderer is client-routed.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Strict CSP for the web production build (see docs/16-SECURITY.md).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.supabase.co https://generativelanguage.googleapis.com; media-src blob: https://*.supabase.co; img-src 'self' data: https://*.supabase.co; script-src 'self'; style-src 'self' 'unsafe-inline';"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "microphone=(self)"

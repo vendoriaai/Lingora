@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lingora - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#0f0069",
+                        "on-secondary-fixed": "#410001",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#eaddff",
+                        "on-surface": "#131b2e",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-highest": "#dae2fd",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-surface-variant": "#464555",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface-dim": "#d2d9f4",
+                        "secondary-container": "#fc6959",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "tertiary-container": "#7531e6",
+                        "on-secondary-container": "#690003",
+                        "secondary": "#ae3026",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#25005a",
+                        "on-primary-container": "#dad7ff",
+                        "primary-container": "#4f46e5",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eaedff",
+                        "secondary-fixed": "#ffdad5",
+                        "background": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-variant": "#dae2fd",
+                        "surface": "#faf8ff",
+                        "tertiary": "#5c00ca",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#131b2e",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "primary": "#3525cd",
+                        "primary-fixed": "#e2dfff",
+                        "outline-variant": "#c7c4d8",
+                        "on-secondary-fixed-variant": "#8c1712",
+                        "outline": "#777587",
+                        "inverse-primary": "#c3c0ff",
+                        "inverse-surface": "#283044",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-container": "#e4d4ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "md": "16px",
+                        "margin-mobile": "20px",
+                        "gutter": "20px",
+                        "margin-desktop": "64px",
+                        "xl": "48px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "display": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "h1-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "h1-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .ai-glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-body-md overflow-x-hidden md:hidden pb-24">
+<!-- TopAppBar from JSON -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-background border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-sm h-16 shadow-sm">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A small circular avatar of an intelligent-looking language student in a clean, modern style with a gentle smile, bright studio lighting, soft color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLWUdREABa6p9TExAPXXkK_dWMzZJBp1hfjdI-adI3H7_uNfb4S7gIRSK8VynZ3Qv7-YEOl9BkeO0ytuZ7m5nt24FM-xN_gYNXyWwe3LWPoywAL9iaUPZmZTBU3xwe3h3kNJQ25f3d3GaPCCtPS8MuXhEx5iUZIuScaUg5gX-0TNTfpLJZr-OCIsTahyonEdha5FR3RRZ1FxbwviKOK-wHXqNCNJgPymC7CC9wlxez8rVZ56BM-iwCmw"/>
+<span class="font-h1-mobile text-h1-mobile font-bold text-primary">Lingora</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="w-full flex flex-col pt-4">
+<!-- User Profile Header -->
+<section class="px-margin-mobile mb-6">
+<div class="rounded-2xl p-6 bg-gradient-to-br from-surface-container-high to-surface-container flex flex-col items-center relative overflow-hidden">
+<!-- Decorative elements -->
+<div class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-primary-fixed-dim rounded-full blur-3xl opacity-50"></div>
+<div class="relative w-24 h-24 mb-4">
+<img class="w-full h-full rounded-full object-cover border-4 border-surface" data-alt="A portrait shot of an intelligent language student with a calm, focused expression. Clean studio background with soft indigo and coral ambient light. High resolution, modern educational app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCakRqvlJATmm0AX9_TmDhdB_78WTCgK-yB3HD5k9ZhUajRuv5nq-R4vA3_KVikVai57c_KwpJ9fDI6c46bjq24xORZZL2VqUVH_s2rhbVfRvtJxMcKiYjSPSByNEVGI1qV2lmxXN8eMtLY3X1EcvmM9QNUQCda9WBwm5QQAToQPst7b9wtcVrDcJaCNEETilesU0ItmqaLNOuClDENK27g_Mw9ffZFd3Rdqn49SnJhqu3NvHJztckL3A"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-on-secondary-container font-label-md text-label-md px-3 py-1 rounded-full border-2 border-surface font-bold shadow-sm">
+                        B1
+                    </div>
+</div>
+<h2 class="font-h2 text-h2 text-on-surface mb-1">Alex Mercer</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Intermediate Spanish Learner</p>
+<div class="flex gap-2 w-full justify-center">
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-caption text-caption rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_fire_department">local_fire_department</span> 14 Day Streak
+                    </span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary font-caption text-caption rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="stars">stars</span> 2.4k XP
+                    </span>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="px-margin-mobile mb-8">
+<h3 class="font-h2 text-h2 text-on-surface mb-4">Learning Stats</h3>
+<div class="grid grid-cols-2 gap-4">
+<!-- Time Studied -->
+<div class="bg-surface rounded-[14px] border border-outline-variant p-4 flex flex-col justify-between aspect-square relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<div>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="schedule">schedule</span>
+<p class="font-caption text-caption text-on-surface-variant">Time Studied</p>
+</div>
+<div>
+<p class="font-h1-mobile text-h1-mobile text-on-surface">42<span class="text-body-md text-on-surface-variant ml-1">hrs</span></p>
+<p class="font-caption text-caption text-secondary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> +2h this week
+                        </p>
+</div>
+</div>
+<!-- Lessons Completed -->
+<div class="bg-surface rounded-[14px] border border-outline-variant p-4 flex flex-col justify-between aspect-square relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-container"></div>
+<div>
+<span class="material-symbols-outlined text-secondary-container mb-2" data-icon="check_circle">check_circle</span>
+<p class="font-caption text-caption text-on-surface-variant">Lessons</p>
+</div>
+<div>
+<p class="font-h1-mobile text-h1-mobile text-on-surface">156</p>
+<p class="font-caption text-caption text-on-surface-variant mt-1">
+                            84% accuracy
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Heatmap Section -->
+<section class="px-margin-mobile mb-8">
+<div class="bg-surface rounded-[14px] border border-outline-variant p-5">
+<div class="flex justify-between items-end mb-4">
+<h3 class="font-label-md text-label-md font-bold text-on-surface">Activity</h3>
+<span class="font-caption text-caption text-on-surface-variant">Last 4 Weeks</span>
+</div>
+<!-- Simplified Heatmap representation -->
+<div class="grid grid-cols-7 gap-2 mb-2">
+<div class="aspect-square rounded-[4px] bg-primary opacity-20"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-60"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-40"></div>
+<div class="aspect-square rounded-[4px] bg-surface-container-highest"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-80"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-100"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-60"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-40"></div>
+<div class="aspect-square rounded-[4px] bg-surface-container-highest"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-60"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-80"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-40"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-100"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-20"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-80"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-100"></div>
+<div class="aspect-square rounded-[4px] bg-surface-container-highest"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-60"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-40"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-80"></div>
+<div class="aspect-square rounded-[4px] bg-primary opacity-100"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant mt-2 px-1">
+<span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+</div>
+</div>
+</section>
+<!-- Achievements -->
+<section class="px-margin-mobile mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-h2 text-h2 text-on-surface">Achievements</h3>
+<button class="font-label-md text-label-md text-primary">View All</button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Achievement Item -->
+<div class="flex items-center gap-4 bg-surface rounded-[14px] border border-outline-variant p-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary" data-icon="school">school</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Grammar Guru</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-1">Complete 50 grammar exercises without errors.</p>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant flex items-center justify-center relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-tertiary opacity-20 h-full"></div>
+<span class="font-caption text-[10px] font-bold text-on-surface z-10">100%</span>
+</div>
+</div>
+<!-- Achievement Item -->
+<div class="flex items-center gap-4 bg-surface rounded-[14px] border border-outline-variant p-4">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" data-icon="mic_external_on">mic_external_on</span>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface">Confident Speaker</h4>
+<p class="font-caption text-caption text-on-surface-variant line-clamp-1">Complete 10 hours of AI voice conversation.</p>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-outline-variant flex items-center justify-center relative overflow-hidden">
+<div class="absolute bottom-0 left-0 w-full bg-secondary opacity-20 h-3/4"></div>
+<span class="font-caption text-[10px] font-bold text-on-surface z-10">75%</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline shadow-sm rounded-t-xl md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-md text-label-md text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="school">school</span>
+<span class="font-label-md text-label-md text-[10px]">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md text-[10px]">Vocab</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

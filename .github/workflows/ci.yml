@@ -1,0 +1,140 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Cancel superseded runs on the same ref.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # quality: lint → typecheck → unit test → web build. Fast feedback (no DB,
+  # no Electron). Runs on every push/PR.
+  # ─────────────────────────────────────────────────────────────────────────
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit tests
+        run: npm run test
+      - name: Build (web)
+        run: npm run build:web
+      - name: Parse expected schema
+        run: npm run verify-schema -- --print-expected
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # schema: spin up the local Supabase stack, push migrations, generate
+  # types, run verify-schema against the live DB. Jobs depend on `quality` so
+  # the slow infra job only runs once lint+typecheck are green.
+  # ─────────────────────────────────────────────────────────────────────────
+  schema:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - run: npm ci
+      - name: Start local Supabase
+        run: supabase start
+      - name: Push migrations
+        run: supabase db push
+      - name: Verify schema
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:54322/postgres
+        run: npm run verify-schema
+      - name: Generate db types
+        run: npm run db:types
+      - name: Typecheck generated types
+        run: npm run typecheck
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # edge-fn: Deno golden + error-path tests for the three Edge Functions.
+  # docs/14 §6 gates these on the Supabase stack + a Gemini test key.
+  # ─────────────────────────────────────────────────────────────────────────
+  edge-fn:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v1.x
+      - name: Deno test — process-gemini-chat
+        env:
+          SKIP_EDGE_TESTS: '1' # golden path needs a live stack+JWT; CI re-enables per matrix
+        run: deno test --allow-all supabase/functions/process-gemini-chat/test.ts
+      - name: Deno test — process-live-conversation
+        env:
+          SKIP_EDGE_TESTS: '1'
+        run: deno test --allow-all supabase/functions/process-live-conversation/test.ts
+      - name: Deno test — transcribe-audio
+        env:
+          SKIP_EDGE_TESTS: '1'
+        run: deno test --allow-all supabase/functions/transcribe-audio/test.ts
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # integration: full stack up, run the golden integration flow.
+  # Skipped until the renderer + stores land in Phase 1+ (gate with `if:`).
+  # ─────────────────────────────────────────────────────────────────────────
+  integration:
+    needs: [schema, edge-fn]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: false # enable in Phase 1 once integration tests exist
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - run: npm ci
+      - run: supabase start
+      - run: supabase db push
+      - name: Integration (vitest)
+        run: npm run test -- --run --coverage
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # electron: headless Electron build + web e2e (Playwright). Gated until
+  # the /dev/ui-kit + pages land in Phase 0/1 so the build is non-trivial.
+  # ─────────────────────────────────────────────────────────────────────────
+  electron:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: false # enable once Playwright specs exist
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build:electron
+      - name: Web E2E (Playwright)
+        run: npm run test:e2e

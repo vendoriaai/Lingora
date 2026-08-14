@@ -1,0 +1,7 @@
+{
+  // Root — solution pointer only. `npm run typecheck` checks each project
+  // individually (see package.json), since each runs in a different lib context
+  // (renderer=DOM, main=Node, preload=Node, shared=ES2022+DOM, test=DOM+vitest).
+  "extends": "./tsconfig.base.json",
+  "include": []
+}

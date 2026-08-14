@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    // Renderer runs in a browser with WebWorker (audio worklets) + import.meta.env.
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"],
+    "types": ["vite/client"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@renderer/*": ["src/renderer/*"],
+      "@shared/*": ["src/shared/*"]
+    }
+  },
+  // shared source is typechecked here (DOM context). TSconfig.shared.json is a
+  // standalone isolation check, not a project reference.
+  "include": ["src/renderer/**/*", "src/shared/**/*", "src/renderer/env.d.ts"]
+}

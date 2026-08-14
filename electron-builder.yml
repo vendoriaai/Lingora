@@ -1,0 +1,55 @@
+# Electron packaging — Lingora. See docs/15-DEPLOYMENT.md.
+appId: com.lingora.app
+productName: Lingora
+copyright: Copyright (c) Lingora
+asar: true
+
+directories:
+  output: release
+  buildResources: build
+
+# The renderer build is published by Vite before electron-builder runs.
+files:
+  - dist-electron/**/*
+  - dist-electron/renderer/**/*
+  - build/icons/**/*
+  - package.json
+  - "!**/node_modules/*/{CHANGELOG.md,README.md,readme.md,readme}"
+
+# Lingora:// deep-link for OAuth redirects.
+protocols:
+  - name: Lingora Auth
+    schemes: ['Lingora']
+
+win:
+  target:
+    - nsis
+  icon: build/icons/icon-256.png
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+
+mac:
+  target:
+    - dmg
+    - zip
+  icon: build/icons/icon-512.icns
+  category: public.app-category.education
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  notarize:
+    teamId: ${APPLE_TEAM_ID}
+
+linux:
+  target:
+    - AppImage
+    - deb
+  icon: build/icons/icon-512.png
+  category: Education
+
+publish:
+  provider: github
+  owner: lingora
+  repo: lingora

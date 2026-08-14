@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lingora - Student Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#e4d4ff",
+                        "on-surface": "#131b2e",
+                        "on-primary-fixed": "#0f0069",
+                        "inverse-surface": "#283044",
+                        "secondary-container": "#fc6959",
+                        "surface-container-low": "#f2f3ff",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "inverse-primary": "#c3c0ff",
+                        "surface-container-high": "#e2e7ff",
+                        "on-secondary-fixed-variant": "#8c1712",
+                        "surface-container-highest": "#dae2fd",
+                        "tertiary-container": "#7531e6",
+                        "tertiary": "#5c00ca",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "surface-bright": "#faf8ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-container": "#690003",
+                        "outline-variant": "#c7c4d8",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdad5",
+                        "background": "#faf8ff",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d2d9f4",
+                        "surface": "#faf8ff",
+                        "surface-tint": "#4d44e3",
+                        "inverse-on-surface": "#eef0ff",
+                        "outline": "#777587",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "primary": "#3525cd",
+                        "on-tertiary-fixed": "#25005a",
+                        "error-container": "#ffdad6",
+                        "secondary": "#ae3026",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#464555",
+                        "primary-container": "#4f46e5",
+                        "on-background": "#131b2e",
+                        "on-secondary-fixed": "#410001",
+                        "surface-container": "#eaedff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "tertiary-fixed": "#eaddff"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "margin-mobile": "20px",
+                        "unit": "4px",
+                        "xl": "48px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "gutter": "20px",
+                        "lg": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "h2": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "h1-mobile": ["Plus Jakarta Sans"],
+                        "display": ["Plus Jakarta Sans"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "caption": ["Inter"]
+                    },
+                    fontSize: {
+                        "h2": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "h1-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+                        "display": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "h1": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+                        "caption": ["12px", { lineHeight: "16px", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .orb-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 105, 89, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(252, 105, 89, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 105, 89, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex">
+<!-- Sidebar -->
+<aside class="w-[264px] bg-surface-container-low border-r border-outline-variant flex flex-col hidden md:flex sticky top-0 h-screen shrink-0">
+<!-- Brand & Chevron -->
+<div class="h-16 flex items-center justify-between px-lg shrink-0">
+<span class="font-h2 text-h2 text-primary">Lingora</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+<!-- Start Speaking CTA -->
+<div class="px-md mt-md shrink-0">
+<button class="w-full bg-secondary-container text-on-error flex items-center justify-center gap-sm py-sm rounded-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">mic</span>
+<span class="font-label-md text-label-md">Start speaking</span>
+</button>
+</div>
+<!-- Navigation Groups -->
+<nav class="flex-1 overflow-y-auto py-lg px-md space-y-lg">
+<!-- Default Today Item -->
+<div>
+<a class="flex items-center gap-sm px-sm py-sm text-primary font-label-md text-label-md relative bg-primary-container/10 rounded-lg" href="#">
+<div class="absolute left-0 top-0 bottom-0 w-[3px] bg-primary rounded-l-lg"></div>
+<span class="material-symbols-outlined">today</span>
+                    Today
+                </a>
+</div>
+<!-- PRACTICE -->
+<div>
+<p class="px-sm font-caption text-caption text-on-surface-variant mb-xs uppercase tracking-wider">Practice</p>
+<div class="space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">record_voice_over</span>
+<span class="font-label-md text-label-md">Live</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">chat</span>
+<span class="font-label-md text-label-md">Chat</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">forum</span>
+<span class="font-label-md text-label-md">Enhanced Chat</span>
+</a>
+</div>
+</div>
+<!-- LEARN -->
+<div>
+<p class="px-sm font-caption text-caption text-on-surface-variant mb-xs uppercase tracking-wider">Learn</p>
+<div class="space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">menu_book</span>
+<span class="font-label-md text-label-md">Vocabulary</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">rule</span>
+<span class="font-label-md text-label-md">Grammar</span>
+</a>
+</div>
+</div>
+<!-- ASSESS -->
+<div>
+<p class="px-sm font-caption text-caption text-on-surface-variant mb-xs uppercase tracking-wider">Assess</p>
+<div class="space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">assignment</span>
+<span class="font-label-md text-label-md">Placement</span>
+</a>
+</div>
+</div>
+<!-- ACCOUNT -->
+<div>
+<p class="px-sm font-caption text-caption text-on-surface-variant mb-xs uppercase tracking-wider">Account</p>
+<div class="space-y-xs">
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+<a class="flex items-center gap-sm px-sm py-sm text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- User Card -->
+<div class="p-md border-t border-outline-variant shrink-0 bg-surface-container-lowest">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A small circular portrait photo of a young professional woman with a warm smile, set against a soft, bright, light-mode background, consistent with a clean, modern UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9RYbnxT8dDfLbBtkGZeiy64YzbH48r3_19hjdfkGJEAONX-Qpj7QnuNNSaXW1k-i3fiBo3bTRRiX1O7o7yUpzmTZeJvjcawRWb0ZtpFFCScbwEpXUN6TlvwKd737d5eXTinOSN2bce_MyczTkC6-R0N8rpmJOCg_JliFAaU-Ve8k6yRlmS776OfLouNpSv-q_kwUz_JT3JoJY2hOusKvIm2RrGRq5AEw4FHmPv97cc-_RVDs24WxYcw"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Maya K.</p>
+<p class="font-caption text-caption text-on-surface-variant">B1 Intermediate</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Header -->
+<header class="h-16 flex items-center justify-between px-margin-desktop border-b border-outline-variant bg-surface sticky top-0 z-10 shrink-0">
+<h1 class="font-h2 text-[20px] leading-[28px] font-semibold text-on-surface">Today</h1>
+<div class="flex items-center gap-lg">
+<!-- Pill Search -->
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded-full text-label-md font-label-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent w-64 placeholder:text-on-surface-variant" placeholder="Search lessons..." type="text"/>
+</div>
+<!-- Icons -->
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<!-- Avatar Mobile (redundant to sidebar, but requested in header right) -->
+<img class="w-8 h-8 rounded-full object-cover md:hidden" data-alt="A small circular portrait photo of a young professional woman with a warm smile, set against a soft, bright, light-mode background, consistent with a clean, modern UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqYLhEUu8ZXsXnU3YoPEQTQnfwo8cz40XcB1KsM3f4QjRI7EBp7PATzFAbD1Cw5C4FGoH55ifKVdYQ9pS9b9KlYtojn_PATwrLTXb_rLXFdTSEIG7Fdb4qlIthyF-0igLK_UWu_opc86F3xFlNngikRfwlrmfXJShQKDRui7HEot2-DB2ZLYsm-tFTzKXH2B9rXjl4tkFNr-ANtcl_5mbZMNhwJtHHC-gPQaJiM6P4i29RJpn5znfrSQ"/>
+</div>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-margin-desktop bg-background">
+<div class="max-w-[1040px] mx-auto">
+<!-- 12-col Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- HERO CARD (cols 1-8) -->
+<div class="md:col-span-8 bg-gradient-to-br from-primary-container/10 to-secondary-container/5 border border-outline-variant rounded-xl p-lg relative overflow-hidden flex flex-col sm:flex-row items-center sm:items-start gap-lg shadow-sm">
+<!-- Decorative background elements -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-12 -left-12 w-48 h-48 bg-secondary-container/5 rounded-full blur-2xl"></div>
+<!-- Left: Coral Mic Orb -->
+<div class="shrink-0 relative flex items-center justify-center w-[120px] h-[120px]">
+<div class="absolute inset-0 bg-secondary-container rounded-full orb-pulse opacity-20"></div>
+<div class="w-24 h-24 bg-gradient-to-tr from-primary to-secondary-container rounded-full flex items-center justify-center shadow-lg z-10">
+<span class="material-symbols-outlined text-on-error text-[40px] fill">mic</span>
+</div>
+<!-- Fake Equalizer Bars -->
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-end gap-1 h-8 z-10 opacity-70">
+<div class="w-1 bg-on-error rounded-t h-3 animate-[pulse_1s_ease-in-out_infinite]"></div>
+<div class="w-1 bg-on-error rounded-t h-6 animate-[pulse_1.2s_ease-in-out_infinite_0.1s]"></div>
+<div class="w-1 bg-on-error rounded-t h-4 animate-[pulse_0.9s_ease-in-out_infinite_0.2s]"></div>
+<div class="w-1 bg-on-error rounded-t h-7 animate-[pulse_1.1s_ease-in-out_infinite_0.3s]"></div>
+<div class="w-1 bg-on-error rounded-t h-5 animate-[pulse_1.3s_ease-in-out_infinite_0.4s]"></div>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 flex flex-col z-10 w-full">
+<div class="flex justify-between items-start mb-sm">
+<div>
+<h2 class="font-h1 text-h1-mobile md:text-h1 text-on-surface mb-xs tracking-tight">Tap to start talking.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">A 5-minute chat keeps your streak alive.</p>
+</div>
+<span class="bg-surface-container-high text-primary font-label-md text-caption px-sm py-1 rounded-full uppercase tracking-wider border border-primary/20">Ready</span>
+</div>
+<div class="flex flex-wrap gap-sm mt-md mb-md">
+<button class="bg-secondary-container text-on-error px-md py-sm rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors shadow-sm">
+                                    Start a live session
+                                </button>
+<button class="bg-surface text-primary border border-primary/30 px-md py-sm rounded-lg font-label-md text-label-md hover:bg-primary-container/5 transition-colors">
+                                    Pick a topic
+                                </button>
+</div>
+<div class="mt-auto pt-sm flex items-center gap-xs font-caption text-caption text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">schedule</span> 12 min spoken this week
+                                <span class="mx-1">·</span>
+<span class="material-symbols-outlined text-[16px] text-secondary-container">local_fire_department</span> 7-day streak
+                                <span class="mx-1">·</span>
+                                Next: Past tenses
+                            </div>
+</div>
+</div>
+<!-- PROGRESS STRIP (cols 9-12) -->
+<div class="md:col-span-4 bg-surface border border-outline-variant rounded-xl p-md flex flex-col shadow-sm">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Your Level</h3>
+<span class="font-h2 text-body-lg text-primary">B1 Intermediate</span>
+</div>
+<!-- XP Bar -->
+<div class="mb-lg">
+<div class="flex justify-between font-caption text-caption text-on-surface-variant mb-xs">
+<span>1,240 XP</span>
+<span>2,000 XP to B2</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-sm mt-auto">
+<div class="bg-surface-container-low rounded-lg p-sm text-center border border-outline-variant/50">
+<span class="block font-h2 text-[20px] text-on-surface">18</span>
+<span class="block font-caption text-caption text-on-surface-variant">Lessons</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm text-center border border-outline-variant/50">
+<span class="block font-h2 text-[20px] text-on-surface">312</span>
+<span class="block font-caption text-caption text-on-surface-variant">Words</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-sm text-center border border-outline-variant/50">
+<span class="block font-h2 text-[20px] text-on-surface">1</span>
+<span class="block font-caption text-caption text-on-surface-variant">Cert</span>
+</div>
+</div>
+</div>
+<!-- BOTTOM ROW SPLIT -->
+<!-- Left Column (cols 1-7) -->
+<div class="md:col-span-7 flex flex-col gap-lg">
+<!-- Today's Plan -->
+<section>
+<h3 class="font-h2 text-[20px] text-on-surface mb-md">Today's plan</h3>
+<div class="bg-surface border border-outline-variant rounded-xl p-sm flex items-center gap-md hover:border-primary/30 transition-colors shadow-sm">
+<div class="w-24 h-24 bg-cover bg-center rounded-lg shrink-0 border border-outline-variant/50" data-alt="A soft, abstract, light-mode 3D illustration featuring floating geometric shapes in pastel indigo and coral tones, representing a modern language learning concept." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAeG55t7nWwcpK0eFkRuYAc5_rI8hiVrtfFZ3oi_5htho_Pv50OcJHlksfnkMrPqypviRJAuPh-ZtwrjaQMFdv-q8NWA2QKDXio0EzvmGjuT9ZETrJwW5Yw5qCBEU_Jygi52NuD_J_GlABXsW9LcDHEVxONKMmRpiy6MmpfLYM2EAm0plkRENwucVVgs8sbAnzfLt1zJsYNF74y4rutMSvw2QUMxGM6IxBr2LVbzHZD2Vz4dyB1dmHyTQ')"></div>
+<div class="flex-1">
+<h4 class="font-label-md text-[16px] text-on-surface mb-xs">Past Simple in Real Life</h4>
+<p class="font-caption text-caption text-on-surface-variant">Grammar Lesson · 15 mins</p>
+<div class="flex items-center gap-sm mt-sm">
+<!-- Fake Progress Ring -->
+<div class="w-6 h-6 rounded-full border-2 border-surface-container-high border-t-primary flex items-center justify-center rotate-45">
+<div class="w-4 h-4 bg-surface rounded-full"></div>
+</div>
+<span class="font-caption text-caption text-primary">40% complete</span>
+</div>
+</div>
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md hover:bg-primary-fixed-variant transition-colors shrink-0 mr-sm">
+                                    Continue
+                                </button>
+</div>
+</section>
+<!-- Recent Activity -->
+<section>
+<h3 class="font-h2 text-[20px] text-on-surface mb-md">Recent activity</h3>
+<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm relative">
+<!-- Timeline line -->
+<div class="absolute left-[39px] top-md bottom-md w-px bg-outline-variant"></div>
+<div class="space-y-lg relative z-10">
+<!-- Item 1 -->
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container/10 flex items-center justify-center shrink-0 border border-secondary-container/20 bg-surface">
+<span class="material-symbols-outlined text-secondary-container text-[20px]">mic</span>
+</div>
+<div class="pt-1">
+<p class="font-label-md text-label-md text-on-surface">5-minute Live Session</p>
+<p class="font-caption text-caption text-on-surface-variant">Today, 10:30 AM · Excellent pronunciation</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20 bg-surface">
+<span class="material-symbols-outlined text-primary text-[20px]">forum</span>
+</div>
+<div class="pt-1">
+<p class="font-label-md text-label-md text-on-surface">Ordering at a Cafe</p>
+<p class="font-caption text-caption text-on-surface-variant">Yesterday · Roleplay Chat</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-md">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0 border border-tertiary/20 bg-surface">
+<span class="material-symbols-outlined text-tertiary text-[20px]">menu_book</span>
+</div>
+<div class="pt-1">
+<p class="font-label-md text-label-md text-on-surface">Mastered 12 new words</p>
+<p class="font-caption text-caption text-on-surface-variant">2 days ago · Food & Dining vocabulary</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (cols 8-12) -->
+<div class="md:col-span-5 flex flex-col gap-lg">
+<!-- Keep Practicing -->
+<section>
+<h3 class="font-h2 text-[20px] text-on-surface mb-md">Keep practicing</h3>
+<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-primary-container/10 rounded-lg flex items-center justify-center text-primary shrink-0 border border-primary/20">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-md text-[14px] text-on-surface">Travel Basics</span>
+<span class="font-caption text-caption text-on-surface-variant">80%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-tertiary-container/10 rounded-lg flex items-center justify-center text-tertiary shrink-0 border border-tertiary/20">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-md text-[14px] text-on-surface">Business Italian</span>
+<span class="font-caption text-caption text-on-surface-variant">25%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Leaderboard Teaser -->
+<section>
+<h3 class="font-h2 text-[20px] text-on-surface mb-md">Leaderboard</h3>
+<div class="bg-surface border border-outline-variant rounded-xl p-md shadow-sm">
+<div class="flex items-center justify-between mb-md pb-md border-b border-outline-variant/50">
+<div>
+<span class="font-label-md text-[14px] text-on-surface block">Top 12% this week</span>
+<span class="font-caption text-caption text-secondary-container">Keep it up to reach top 10%</span>
+</div>
+<span class="material-symbols-outlined text-secondary-container text-[32px]">emoji_events</span>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between bg-surface-container-low p-sm rounded-lg">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface-variant w-4">4</span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A tiny profile avatar of a smiling young man in light mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANe_X8TaOcFZ9qbBEUCdB3UeNFTNUU9JD8jTForJOyNdIYWxuoyOzeZLy8zYbkoopq652YK4jVGyprjMnRxiMK9ixA4qNvlJRd05Iz3GH7nYhbRIbctH66hxmM0DeA0mDKEFvYgB-yk4-Qxmp3vQb0yghdCKnWRkGsztDd2Pp7Kf0j2Qk9F8UkN3zIcdmNPI3oHUY91RYFVZlLbTo3oH75r_9DQ6XHzLm8I8cZYAv8-D8cJHEEdw9ugg"/>
+<span class="font-label-md text-label-md text-on-surface">David M.</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">1,350 XP</span>
+</div>
+<div class="flex items-center justify-between bg-primary-container/10 border border-primary/20 p-sm rounded-lg">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-primary w-4">5</span>
+<img class="w-6 h-6 rounded-full object-cover border border-primary/30" data-alt="A small circular portrait photo of a young professional woman with a warm smile, set against a soft, bright, light-mode background, consistent with a clean, modern UI aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDld689IoUBpUFTBcmp2uhh9EXyUQSGPgt4zyqfDSw32C-xldsE_EBkjkDqo8SEUslvmHo6ebN5p9vOjiRY9dLXm4sZCH5MtYeeuBrJsglrOwIRiwrJNToRCS8wKn0ESeS75YhygCX7l-HURWr1uVBJPYH68HXAnEDDkMXdxpD6DNCXFr6GDd4QC8MLNhFm9FxbooPM92fSlYpa2Bga6nJ9VpHl_16Y14IlgG_pXoyQuTXsgeCfRtQcyQ"/>
+<span class="font-label-md text-label-md text-primary">Maya K. (You)</span>
+</div>
+<span class="font-caption text-caption text-primary">1,240 XP</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low p-sm rounded-lg">
+<div class="flex items-center gap-sm">
+<span class="font-label-md text-on-surface-variant w-4">6</span>
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A tiny profile avatar of an older woman with glasses in light mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMjnVChoCpoEhl4WnqlN0Bn4727aOchKM6evNE6iuHNNJQDoqdae890k46HYItEfYhBUum5AhNxEvhrn6tL7xnTghbjlxEAsW_BhA5fPaJ3xYFgTTwpLfbBeLdbSaAKJ97daDgu9562kyrwb6q4f7AVIG4OjpsCPtCDJ_5SnoEG7p6eHx45vb6Yd6TQvI5mR5koRJwtVkGOvj9XxcMKrXzIyOIhHTG4_5stkjFFmXfyAZBhyVovfElOA"/>
+<span class="font-label-md text-label-md text-on-surface">Sarah L.</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">1,120 XP</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

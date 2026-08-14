@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────────────
+ * Tailwind base layer overrides. Fonts & default text color come from tokens.
+ * The Inter font-feature-settings (single-story a, l/1/I disambiguation) are
+ * applied globally so every <body> text uses the brand alternates.
+ * ───────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    /* Inter brand alternates (brand §5). */
+    font-feature-settings: var(--font-feature-inter);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    line-height: var(--line-height-body);
+    min-height: 100vh;
+    transition: background-color var(--dur-220) var(--ease-standard),
+      color var(--dur-220) var(--ease-standard);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    line-height: var(--line-height-display);
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  code, pre, kbd, samp {
+    font-family: var(--font-mono);
+    font-feature-settings: normal;
+    line-height: var(--line-height-mono);
+  }
+
+  /* Skip-to-content link — keyboard-first a11y (05 §4). */
+  [data-skip-link]:focus-visible {
+    position: fixed;
+    top: var(--space-2);
+    left: var(--space-2);
+    z-index: var(--z-tooltip);
+    padding: var(--space-2) var(--space-4);
+    background: var(--brand-primary);
+    color: var(--text-on-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+  }
+
+  /* Universal focus-visible ring (2px solid Indigo, 2px offset). */
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}

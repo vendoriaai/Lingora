@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lingora - Courses Catalog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#0f0069",
+                        "on-secondary-fixed": "#410001",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#eaddff",
+                        "on-surface": "#131b2e",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-highest": "#dae2fd",
+                        "on-primary": "#ffffff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "on-surface-variant": "#464555",
+                        "inverse-on-surface": "#eef0ff",
+                        "surface-dim": "#d2d9f4",
+                        "secondary-container": "#fc6959",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "tertiary-container": "#7531e6",
+                        "on-secondary-container": "#690003",
+                        "secondary": "#ae3026",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#25005a",
+                        "on-primary-container": "#dad7ff",
+                        "primary-container": "#4f46e5",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eaedff",
+                        "secondary-fixed": "#ffdad5",
+                        "background": "#faf8ff",
+                        "surface-container-high": "#e2e7ff",
+                        "surface-variant": "#dae2fd",
+                        "surface": "#faf8ff",
+                        "tertiary": "#5c00ca",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#131b2e",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "primary": "#3525cd",
+                        "primary-fixed": "#e2dfff",
+                        "outline-variant": "#c7c4d8",
+                        "on-secondary-fixed-variant": "#8c1712",
+                        "outline": "#777587",
+                        "inverse-primary": "#c3c0ff",
+                        "inverse-surface": "#283044",
+                        "surface-tint": "#4d44e3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "on-tertiary-container": "#e4d4ff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "md": "16px",
+                        "margin-mobile": "20px",
+                        "gutter": "20px",
+                        "margin-desktop": "64px",
+                        "xl": "48px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "caption": ["Inter"],
+                        "display": ["Plus Jakarta Sans"],
+                        "h2": ["Plus Jakarta Sans"],
+                        "h1": ["Plus Jakarta Sans"],
+                        "h1-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "h1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "h1-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        .dark .glass-panel {
+            background: rgba(40, 48, 68, 0.7);
+            border-color: rgba(119, 117, 135, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-[72px] pb-[96px] dark:bg-inverse-surface dark:text-inverse-on-surface">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background text-primary dark:text-primary-fixed-dim font-h2 text-h2-mobile text-on-surface dark:text-on-surface-variant font-display text-h1-mobile font-bold text-primary dark:text-primary-fixed-dim w-full top-0 sticky border-b border-outline-variant dark:border-outline text-primary dark:text-primary-fixed-dim text-on-surface-variant dark:text-outline hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200 flex justify-between items-center px-margin-mobile py-sm w-full z-40 glass-panel">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest dark:bg-surface-dim overflow-hidden flex items-center justify-center border border-outline-variant dark:border-outline">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A softly lit, professional headshot of a smiling young woman with short dark hair, wearing a clean white minimalist shirt. The background is a very subtle, soft studio grey, perfectly suited for a calm, modern educational app profile photo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBs-fcs6DqaiHMahP5lQOUGKbh3UPp2xN4bEgL31_f5UIWjFGcRia6_jXLf5NY1Hz35YK24MCBEpIefiGXhFx6Fo0p1lteGuX-V6Rvj5XUCCRrst3o-GDsF_BmQrMa1Y7KvCS7U0AoYgTIyc76TMf8rovSF8AaWqttdwlthB1zlpC7nygYXCOzXwDM8GhuuA_vE1_a1Ah9aMGjVtbigU8nTD6alt0_n5dpUKGvRsUY3_uMWTNxxQyrG7A"/>
+</div>
+<h1 class="font-display font-h1-mobile text-h1-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Lingora</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 text-on-surface dark:text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col px-margin-mobile pt-md gap-lg">
+<!-- Header & Filters -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-h2 text-h2 text-on-surface dark:text-on-surface-variant">Explore Courses</h2>
+<div class="flex gap-sm overflow-x-auto pb-2 scrollbar-hide -mx-margin-mobile px-margin-mobile">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-colors shadow-sm">All</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md dark:bg-surface-dim dark:text-on-surface-variant dark:border-outline dark:hover:bg-surface-container">General</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md dark:bg-surface-dim dark:text-on-surface-variant dark:border-outline dark:hover:bg-surface-container">Travel</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface text-on-surface border border-outline-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md dark:bg-surface-dim dark:text-on-surface-variant dark:border-outline dark:hover:bg-surface-container">Business</button>
+</div>
+</div>
+<!-- Course List -->
+<div class="flex flex-col gap-md">
+<!-- Course Card 1 -->
+<div class="bg-surface dark:bg-surface-dim rounded-[14px] border border-outline-variant dark:border-outline overflow-hidden flex flex-col">
+<div class="h-32 relative bg-surface-container w-full">
+<img alt="French for Travel" class="w-full h-full object-cover" data-alt="A warm, inviting cinematic photo of a cozy Parisian cafe terrace at golden hour. Soft sunlight filters through green leaves onto small round tables with espresso cups. The overall tone is calm, sophisticated, and educational, using subtle coral and indigo color accents in the environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCre-TCALf6Xm8IM_p41xNd8OEJfR3QgwA84blGA4rmAHAgaZV0F1AR9DJLiv3RCr2yXjttDsM4BST-IArlIwa50psZH-8_IGxoRXGPmEEjVBq5frvki7jaecF2r92c1VCxyfyfrtuqTLAQrtTJFpCQcvKjyAtB0Y94-dTTJniSU219zzNphOvTkmNlQxSYKQpjANSlSqpwdYyRXWLZRALJ7RMAFL86DXSUygGEMK_Wchzsl6R18SQSQ"/>
+<div class="absolute top-sm right-sm bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md border border-outline-variant/50">
+<span class="font-label-md text-label-md text-primary font-bold">A1</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface dark:text-on-surface-variant">French for Travel</h3>
+<p class="font-caption text-caption text-on-surface-variant dark:text-outline mt-xs">Master essential phrases for your next trip to Paris.</p>
+</div>
+</div>
+<div class="mt-sm flex justify-end">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-[10px] font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Start Course</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="bg-surface dark:bg-surface-dim rounded-[14px] border border-outline-variant dark:border-outline overflow-hidden flex flex-col">
+<div class="h-32 relative bg-surface-container w-full">
+<img alt="Business Japanese" class="w-full h-full object-cover" data-alt="A sophisticated, minimalist workspace in Tokyo. A sleek wooden desk with a clean modern laptop, a small bonsai tree, and subtle ambient lighting casting soft indigo shadows. The mood is focused, professional, and calm, reflecting a modern business environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuyvKsg1muca-awfL82_QYCKidL-HzOymkUcP-TB17pKn61BHWPCeCTW8VAKvyeRGX_VHroeAE4cz4FAP5uB7WDFAW74Fh2bYu4RlyoB4hBvtX6T1XAQznVK-d9uyDTdxi1QTfRx4P2u1CsHWRupmug2UX6pXF5k0sf6YH1DXbau0YovUyCzWvOtVgQ_TUJBnHoCPA6fDp2IgeuYM0l0IHbsHs9titqxb_TPbVoxDhj1DTynSH5GdEcQ"/>
+<div class="absolute top-sm right-sm bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md border border-outline-variant/50">
+<span class="font-label-md text-label-md text-primary font-bold">B2</span>
+</div>
+<div class="absolute top-sm left-sm bg-secondary-container/90 backdrop-blur-sm px-2 py-1 rounded-md border border-secondary/50">
+<span class="font-label-md text-caption text-on-secondary-container font-medium flex items-center gap-xs"><span class="material-symbols-outlined text-[14px]" data-icon="sync">sync</span> In Progress</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface dark:text-on-surface-variant">Business Japanese</h3>
+<p class="font-caption text-caption text-on-surface-variant dark:text-outline mt-xs">Advanced keigo and corporate communication.</p>
+</div>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mt-2 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full w-[45%]"></div>
+</div>
+<div class="mt-sm flex justify-end">
+<button class="px-4 py-2 border border-outline text-primary dark:text-primary-fixed-dim rounded-[10px] font-label-md text-label-md hover:bg-surface-container-low dark:hover:bg-surface-container transition-colors">Continue</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="bg-surface dark:bg-surface-dim rounded-[14px] border border-outline-variant dark:border-outline overflow-hidden flex flex-col">
+<div class="h-32 relative bg-surface-container w-full">
+<img alt="Conversational Spanish" class="w-full h-full object-cover" data-alt="A serene view of a vibrant Spanish plaza, filled with historic architecture but captured with a modern, clean photographic style. Soft, warm sunlight creates gentle contrast. The image uses spacious composition and subtle coral accents, perfect for a calm educational app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9c3IXgfECKxB8tGPjESUlZWHBOG6406F1g_LyAtgFyNRIYC0NR-4JMgeqr-Td3GsRLdh8g0-ZKhsHnsMnrGu5beQHeQornBUolARbhmzSfnC0zIzftWUwvfItxpsAuowPdzVQ0b5r-nkCqpm9Hb1-tfzkQFKnYQWKeI6KLBRP-7YTeJu_jqPV3uCUuPhyNl00gNmNPHmbd8m5wAX3V44CHGw4x6cHK6IbGidr6B34bXN_AJyFk97Iow"/>
+<div class="absolute top-sm right-sm bg-surface/90 backdrop-blur-sm px-2 py-1 rounded-md border border-outline-variant/50">
+<span class="font-label-md text-label-md text-primary font-bold">B1</span>
+</div>
+</div>
+<div class="p-md flex flex-col gap-sm">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface dark:text-on-surface-variant">Conversational Spanish</h3>
+<p class="font-caption text-caption text-on-surface-variant dark:text-outline mt-xs">Fluid dialogue for everyday situations and networking.</p>
+</div>
+</div>
+<div class="mt-sm flex justify-end">
+<button class="px-4 py-2 bg-primary text-on-primary rounded-[10px] font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">Start Course</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface dark:bg-surface-dim text-primary dark:text-primary-fixed-dim font-label-md text-label-md font-display text-h2 text-primary fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline shadow-sm flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150 fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden glass-panel !border-t-0 border-x border-outline-variant/30 dark:border-outline/30 mx-auto max-w-md left-1/2 -translate-x-1/2 mb-2 w-[calc(100%-32px)] !rounded-[24px]">
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-md text-[10px] leading-tight">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 active:scale-90 duration-150 shadow-sm">
+<span class="material-symbols-outlined mb-1" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-[10px] leading-tight font-bold">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-[10px] leading-tight">Vocab</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-md text-[10px] leading-tight">Profile</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,69 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * Motion utilities. Reduced-motion media query flattens transitions and
+ * zeroes the AudioPulse breathing scale (05 §1.6, brand §8).
+ * Plain CSS (not @layer): these are custom animation declarations that
+ * don't need Tailwind layer ordering. Tailwind's config also defines
+ * animate-orb-breathe/ai-glow utilities — these serve as a plain-CSS
+ * fallback so the keyframes are always available even if the Tailwind
+ * animation utility is tree-shaken.
+ * ───────────────────────────────────────────────────────────────────── */
+
+/* The Speak-now pulse signature motion. Idle: 2s breathing scale 1.0 -> 1.03.
+ * Active: live volume mapping (set --pulse-scale via worklet). */
+.animate-orb-breathe {
+  animation: orb-breathe 2s var(--ease-standard) infinite;
+}
+
+/* AI is speaking — soft coral glow ~1.2s expanding/contracting ring. */
+.animate-ai-glow {
+  animation: ai-glow 1.2s var(--ease-standard) infinite;
+}
+
+/* Page transition (brand §8): 260ms fade + 8–12px slide. */
+.page-transition {
+  animation: page-in 260ms var(--ease-standard);
+}
+
+@keyframes orb-breathe {
+  0%, 100% { transform: scale(var(--orb-scale, 1)); }
+  50% { transform: scale(calc(var(--orb-scale, 1) + 0.03)); }
+}
+
+@keyframes ai-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable slide/parallax; keep opacity-only fades ≤150ms (brand §8). */
+  *, *::before, *::after {
+    animation-duration: 0.15ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-orb-breathe,
+  .animate-ai-glow {
+    /* The AudioPulse idle breathing pauses — replaced with a slow opacity fade
+     * per 06 §3.4 (Live page a11y). */
+    animation: reduced-orb 3s ease-in-out infinite;
+  }
+  .page-transition {
+    animation: reduced-page-in 150ms ease-out;
+  }
+}
+
+@keyframes reduced-orb {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1); }
+}
+
+@keyframes reduced-page-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

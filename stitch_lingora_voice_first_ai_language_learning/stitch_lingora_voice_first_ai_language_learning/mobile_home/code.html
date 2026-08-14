@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lingora - Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#0f0069",
+                      "on-secondary-fixed": "#410001",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed": "#eaddff",
+                      "on-surface": "#131b2e",
+                      "surface-container-low": "#f2f3ff",
+                      "surface-container-highest": "#dae2fd",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "secondary-fixed-dim": "#ffb4aa",
+                      "on-surface-variant": "#464555",
+                      "inverse-on-surface": "#eef0ff",
+                      "surface-dim": "#d2d9f4",
+                      "secondary-container": "#fc6959",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "on-tertiary-fixed-variant": "#5a00c6",
+                      "tertiary-container": "#7531e6",
+                      "on-secondary-container": "#690003",
+                      "secondary": "#ae3026",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "on-tertiary-fixed": "#25005a",
+                      "on-primary-container": "#dad7ff",
+                      "primary-container": "#4f46e5",
+                      "error": "#ba1a1a",
+                      "surface-container": "#eaedff",
+                      "secondary-fixed": "#ffdad5",
+                      "background": "#faf8ff",
+                      "surface-container-high": "#e2e7ff",
+                      "surface-variant": "#dae2fd",
+                      "surface": "#faf8ff",
+                      "tertiary": "#5c00ca",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#131b2e",
+                      "tertiary-fixed-dim": "#d2bbff",
+                      "primary": "#3525cd",
+                      "primary-fixed": "#e2dfff",
+                      "outline-variant": "#c7c4d8",
+                      "on-secondary-fixed-variant": "#8c1712",
+                      "outline": "#777587",
+                      "inverse-primary": "#c3c0ff",
+                      "inverse-surface": "#283044",
+                      "surface-tint": "#4d44e3",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#faf8ff",
+                      "on-tertiary-container": "#e4d4ff",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px",
+                      "2xl": "1rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "md": "16px",
+                      "margin-mobile": "20px",
+                      "gutter": "20px",
+                      "margin-desktop": "64px",
+                      "xl": "48px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "caption": ["Inter"],
+                      "display": ["Plus Jakarta Sans"],
+                      "h2": ["Plus Jakarta Sans"],
+                      "h1": ["Plus Jakarta Sans"],
+                      "h1-mobile": ["Plus Jakarta Sans"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h2": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "h1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "h1-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        @keyframes pulse-orb {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 105, 89, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(252, 105, 89, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(252, 105, 89, 0); }
+        }
+        .animate-orb {
+            animation: pulse-orb 2.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-[100px] antialiased">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-background dark:bg-background border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-mobile py-sm w-full">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant flex items-center justify-center">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A close-up, high-key portrait of a young person smiling softly in a brightly lit, modern environment. The lighting is soft and pristine white, emphasizing a clean, approachable aesthetic suitable for a language learning app profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6WK8NEkgEvRnv0zQ62uJfUniNF30wLf2BR4HNQBT06oPt7jyIsb3kezrlcrhAcXKqqQMtcKiC3M1bVMe65Sb7V8LErhaD68nf0mzkD3k5-Uhx5wo432CdC2fij2D8X5JalMlSh9ALK9JH71YpZVRL0qeO2gdOgoMg47VQvWzsM_-WRSxR8iW8crKqMMG6_GtzlaX80Wvz9X7nW-zNdExurHmLp11WC20dIm6mahtPmsUR_8qrGALchw"/>
+</div>
+<h1 class="font-display text-h2-mobile font-bold text-primary dark:text-primary-fixed-dim text-center absolute left-1/2 -translate-x-1/2">
+            Lingora
+        </h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-dim transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+</header>
+<main class="flex flex-col gap-xl pt-lg">
+<!-- Welcome Message -->
+<section class="px-margin-mobile flex flex-col gap-xs">
+<p class="font-body-lg text-body-lg text-on-surface-variant">Good morning, Alex 👋</p>
+<h2 class="font-h1-mobile text-h1-mobile text-on-surface">Ready to chat?</h2>
+</section>
+<!-- Hero Card (Orb) -->
+<section class="px-margin-mobile">
+<div class="bg-surface-container-low border border-primary-fixed rounded-2xl p-xl flex flex-col items-center justify-center gap-lg relative overflow-hidden shadow-sm">
+<!-- Subtle glassmorphism background glow -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-primary/5 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center gap-md">
+<button aria-label="Start Voice Conversation" class="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary-container flex items-center justify-center animate-orb transition-transform active:scale-95 cursor-pointer shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-container-low">
+<span class="material-symbols-outlined text-white text-[40px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+<p class="font-label-md text-label-md text-on-surface text-center opacity-90 tracking-wide uppercase">Tap to Speak</p>
+</div>
+</div>
+</section>
+<!-- Mini Stats Scroll -->
+<section>
+<div class="flex gap-md overflow-x-auto px-margin-mobile hide-scrollbar snap-x pb-sm">
+<!-- Streak -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md min-w-[120px] snap-start flex flex-col gap-xs shadow-sm">
+<div class="flex items-center gap-xs text-secondary-container">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-h2 text-h2 text-on-surface">12</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Day Streak</span>
+</div>
+<!-- Words -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md min-w-[120px] snap-start flex flex-col gap-xs shadow-sm">
+<div class="flex items-center gap-xs text-tertiary-container">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">library_add_check</span>
+<span class="font-h2 text-h2 text-on-surface">450</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Words Mastered</span>
+</div>
+<!-- XP -->
+<div class="bg-surface border border-outline-variant rounded-xl p-md min-w-[120px] snap-start flex flex-col gap-xs shadow-sm">
+<div class="flex items-center gap-xs text-primary">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-h2 text-h2 text-on-surface">2.4k</span>
+</div>
+<span class="font-caption text-caption text-on-surface-variant">Total XP</span>
+</div>
+</div>
+</section>
+<!-- Today's Plan -->
+<section class="px-margin-mobile flex flex-col gap-md">
+<h3 class="font-h2-mobile text-h2-mobile text-on-surface">Today's Plan</h3>
+<button class="w-full text-left bg-surface border border-outline-variant rounded-2xl p-md flex flex-col gap-md shadow-sm active:scale-[0.98] transition-transform duration-200 group hover:border-primary-fixed">
+<div class="flex justify-between items-start w-full">
+<div class="flex flex-col gap-xs">
+<span class="font-caption text-caption text-primary uppercase tracking-widest font-semibold">Featured Lesson</span>
+<h4 class="font-h2 text-h2 text-on-surface group-hover:text-primary transition-colors">Past Simple in Real Life</h4>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</div>
+</div>
+<div class="w-full flex flex-col gap-xs mt-sm">
+<div class="flex justify-between items-center w-full">
+<span class="font-caption text-caption text-on-surface-variant">60% Complete</span>
+<span class="font-caption text-caption text-on-surface-variant">10 mins left</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[60%]"></div>
+</div>
+</div>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface dark:bg-surface-dim border-t border-outline-variant dark:border-outline shadow-sm">
+<div class="flex justify-around items-center px-4 pb-4 pt-2 w-full">
+<!-- Active Tab: Home -->
+<button class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary rounded-xl px-4 py-1 active:scale-90 duration-150 group">
+<span class="material-symbols-outlined text-[24px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</button>
+<!-- Inactive Tab: Learn -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined text-[24px]">school</span>
+<span class="font-label-md text-label-md mt-1">Learn</span>
+</button>
+<!-- Inactive Tab: Vocab -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-md text-label-md mt-1">Vocab</span>
+</button>
+<!-- Inactive Tab: Profile -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-4 py-1 hover:text-primary dark:hover:text-primary-fixed-dim transition-all active:scale-90 duration-150 group">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────────────────────────────────────
+# Lingora Supabase local config. See `supabase init`. Local stack runs via
+# `supabase start`; cloud-linked via `supabase link --project-ref $PROJECT_REF`.
+# ─────────────────────────────────────────────────────────────────────────
+
+project_id = "lingora"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[db.pooler]
+enabled = false
+
+[realtime]
+enabled = true
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["Lingora://auth/callback", "http://localhost:5173/auth/callback"]
+jwt_expiry = 3600
+enable_signup = true
+enable_anonymous_sign_ins = false
+
+[auth.external.google]
+enabled = false  # set true + client id/secret to wire Google OAuth
